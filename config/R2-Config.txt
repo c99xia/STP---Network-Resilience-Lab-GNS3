@@ -1,0 +1,36 @@
+R2 Configuration
+
+Initially Configuration
+enable
+configure terminal
+hostname R2
+line console 0
+logg synchronous
+exec-timeout 0
+
+int s2/0
+ip add 172.16.10.2 255.255.255.0
+no shut
+int e0/0
+ip add dhcp
+no shut
+exit
+
+10. Install DNS server on R1
+ip dns server 
+router rip
+net 0.0.0.0
+ver 2
+default-information originate
+
+
+11. Install NAT overload on R2.
+
+int e0/0
+ip nat outside
+
+int s2/0
+ip nat inside 
+exit
+access-list 10 permit any
+ip nat inside source list 10 int e0/0 overload

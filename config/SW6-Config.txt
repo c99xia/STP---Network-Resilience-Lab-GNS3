@@ -1,0 +1,34 @@
+Switch 6 Configuration
+
+- Initially Configuration
+enable
+configure terminal
+hostname SW6
+line console 0
+logg synchronous
+exec-timeout 0
+
+1. Configure PC4 in VLAN 30
+int e0/0
+switchport mode access
+switchport access vlan 30
+
+3. Order of STP priorities: SW5 - SW1 - SW3 - SW7 - SW2 - SW4 - SW6
+conf t
+spanning-tree vlan 1,10,20,30,99 priority 57344
+
+
+SW6.e1/0 is the Root Port
+
+int e1/0
+spanning-tree cost 97
+
+5. Route VLAN 20 to SW1
+
+int range e1/0 - 1, e0/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 99
+end
+configure terminal 
+vlan 99

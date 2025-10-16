@@ -1,0 +1,59 @@
+R1 Configuration
+
+Initially Configuration
+
+enable
+configure terminal
+hostname R1
+line console 0
+logg synchronous
+exec-timeout 0
+
+Route VLAN 10 and VLAN 30 to R1
+
+conf t
+int e1/0
+no shut
+
+int e1/0.10
+encapsulation dot1q 10
+ip add 192.168.10.254 255.255.255.0
+
+int e1/0.30
+encapsulation dot1q 30
+ip add 192.168.30.254 255.255.255.0
+
+int e1/0.99
+encapsulation dot1q 99 native
+ip add 192.168.99.10 255.255.255.0
+exit
+
+router rip 
+net 0.0.0.0
+ver 2
+
+
+7. Install routed link in SW7 - R1
+
+conf t
+int e1/1
+ip add 192.168.98.1 255.255.255.0
+no shut
+
+
+10. Install DNS server on R1
+
+conf t
+ip name-server 172.16.10.2
+int s2/0
+ip add 172.168.10.1 255.255.255.0
+no shut
+
+For DHCP 
+
+ip helper-address 192.168.99.1
+end
+wr
+
+
+

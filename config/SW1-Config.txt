@@ -1,0 +1,58 @@
+Switch 1 Configuration
+
+Initially Configuration
+
+enable
+configure terminal
+hostname SW1
+line console 0
+logg synchronous
+exec-timeout 0
+
+3. Order of STP priorities: SW5 - SW1 - SW3 - SW7 - SW2 - SW4 - SW6
+
+conf t
+spanning-tree vlan 1, 10, 20, 30, 99 priority 16384 
+
+5. Route VLAN 20 to SW1
+
+int range e1/0 - 3 , e0/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk native vlan 99
+end
+configure terminal 
+vlan 99
+
+int vlan 20
+ip add 192.168.20.254 255.255.255.0
+no shut
+int vlan 99
+ip add 192.168.99.1 255.255.255.0
+no shut
+ip routing
+router rip 
+net 0.0.0.0
+version 2
+end
+
+9. Install DHCP server on SW1
+
+conf t
+ip dhcp pool pool10
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.254
+dns-server 192.168.99.10
+
+ip dhcp pool pool20
+network 192.168.20.0 255.255.255.0
+default-router 192.168.20.254
+dns-server 192.168.99.10
+
+ip dhcp pool pool30
+network 192.168.30.0 255.255.255.0
+default-router 192.168.30.254
+dns-server 192.168.99.10
+
+
+
