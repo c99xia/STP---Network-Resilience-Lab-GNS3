@@ -66,17 +66,17 @@ This configuration results in a single logical link with double the bandwidth an
 
 ## Device Configurations
 
-The full running configurations for each device can be found in the `configs` directory:
+The full running configurations for each device can be found in the `config` directory:
 
-*   [`config/SW1`](configs/SW1-Config.txt)
-*   [`config/SW2`](configs/SW2-Config.txt)
-*   [`config/SW3`](configs/SW3-Config.txt)
-*   [`config/SW4`](configs/SW4-Config.txt)
-*   [`config/SW5`](configs/SW5-Config.txt)
-*   [`config/SW6`](configs/SW6-Config.txt)
-*   [`config/SW7`](configs/SW7-Config.txt)
-*   [`config/R1`](configs/R1-Config.txt)
-*   [`config/R2`](configs/R2-Config.txt)
+*   [`config`](configs/SW1-Config.txt)
+*   [`config`](configs/SW2-Config.txt)
+*   [`config`](configs/SW3-Config.txt)
+*   [`config`](configs/SW4-Config.txt)
+*   [`config`](configs/SW5-Config.txt)
+*   [`config`](configs/SW6-Config.txt)
+*   [`config`](configs/SW7-Config.txt)
+*   [`config`](configs/R1-Config.txt)
+*   [`config`](configs/R2-Config.txt)
 
 ## Conclusion and Validation
 
