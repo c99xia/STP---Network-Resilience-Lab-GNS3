@@ -8,7 +8,7 @@ In switched networks with redundant physical paths, switching loops are a critic
 
 ## Network Topology
 
-![GNS3 Network Topology](img/network-topology.png)
+![GNS3 Network Topology](network-topology.png)
 
 ## Key Technologies and Concepts
 
